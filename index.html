@@ -8,13 +8,13 @@
   <style>
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background-color: #fce4ec;
+      background-color: #f0f8ff;
       text-align: center;
       padding: 50px;
     }
 
     h1 {
-      color: #e91e63;
+      color: #2196f3;
       font-size: 2.5em;
     }
 
@@ -22,7 +22,7 @@
       padding: 10px;
       font-size: 1.2em;
       border-radius: 10px;
-      border: 2px solid #e91e63;
+      border: 2px solid #2196f3;
     }
 
     button {
@@ -30,36 +30,37 @@
       padding: 10px 20px;
       font-size: 1.1em;
       border: none;
-      background-color: #e91e63;
+      background-color: #2196f3;
       color: white;
       border-radius: 10px;
       cursor: pointer;
     }
 
     button:hover {
-      background-color: #ad1457;
+      background-color: #1976d2;
     }
 
     #result {
       margin-top: 30px;
       font-size: 1.5em;
-      color: #880e4f;
+      color: #0d47a1;
     }
   </style>
 </head>
 <body>
-  <h1> Combien vaut ton prénom ? 🤑💶💸🪙</h1>
-  <input type="text" id="prenom" placeholder="Tape ton prénom ici">
+  <h1>💎 Combien vaut ton prénom ? 🧠</h1>
+  <input type="text" id="prenom" placeholder="Écris ton prénom ici">
   <br>
-  <button onclick="calculerValeur()">Voir la valeur</button>
+  <button onclick="calculerValeur()">Calculer</button>
 
   <div id="result"></div>
 
   <script>
     function calculerValeur() {
-      const prenom = document.getElementById("prenom").value.trim().toLowerCase();
+      const prenom = document.getElementById("prenom").value.trim();
+
       if (prenom === "") {
-        document.getElementById("result").innerText = "Entrez un prénom d'abord 😅";
+        document.getElementById("result").innerText = "⚠️ Tu dois d'abord écrire un prénom !";
         return;
       }
 
@@ -68,10 +69,9 @@
         valeur += prenom.charCodeAt(i);
       }
 
-      // On rend le tout marrant en transformant ça en carottes
-      const carottes = Math.floor(valeur % 300) + 50;
+      const points = (valeur % 500) + 10;
       document.getElementById("result").innerText =
-        `🥕 Ton prénom vaut ${Euro} carottes magiques !`;
+        `🎉 Le prénom "${prenom}" vaut ${points} points de rareté !`;
     }
   </script>
 </body>
