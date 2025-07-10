@@ -1,1 +1,78 @@
-bb
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="ppck-ver" content="a82c6c54126c267c4494726ad">
+  <title>Combien vaut ton prénom ?</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fce4ec;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 2.5em;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      border: 2px solid #e91e63;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border: none;
+      background-color: #e91e63;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ad1457;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 1.5em;
+      color: #880e4f;
+    }
+  </style>
+</head>
+<body>
+  <h1> Combien vaut ton prénom ? 🤑💶💸🪙</h1>
+  <input type="text" id="prenom" placeholder="Tape ton prénom ici">
+  <br>
+  <button onclick="calculerValeur()">Voir la valeur</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculerValeur() {
+      const prenom = document.getElementById("prenom").value.trim().toLowerCase();
+      if (prenom === "") {
+        document.getElementById("result").innerText = "Entrez un prénom d'abord 😅";
+        return;
+      }
+
+      let valeur = 0;
+      for (let i = 0; i < prenom.length; i++) {
+        valeur += prenom.charCodeAt(i);
+      }
+
+      // On rend le tout marrant en transformant ça en carottes
+      const carottes = Math.floor(valeur % 300) + 50;
+      document.getElementById("result").innerText =
+        `🥕 Ton prénom vaut ${Euro} carottes magiques !`;
+    }
+  </script>
+</body>
+</html>
